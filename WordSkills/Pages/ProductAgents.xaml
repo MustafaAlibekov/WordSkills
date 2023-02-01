@@ -13,7 +13,7 @@
             <RowDefinition Height="377"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="DGridProducts" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,0,0,102">
+        <DataGrid x:Name="DGridProducts" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,0,0,71">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Продукт" Binding="{Binding prod}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Агент" Binding="{Binding agent}"></DataGridTextColumn>
@@ -28,7 +28,20 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Добавить" HorizontalAlignment="Left" Name="BtnAdd" Click="BtnAdd_Click" Width="192" Margin="58,275,0,72"/>
-        <Button Content="Удалить" HorizontalAlignment="Left" Name="BtnDelete" Click="BtnDelete_Click" Margin="550,275,0,72" Width="194"/>
+        <DockPanel Margin="0,300,0,0">
+            <Button Content="Добавить" HorizontalAlignment="Left" Name="BtnAdd" Click="BtnAdd_Click" Width="192"/>
+            <Button Content="Удалить" HorizontalAlignment="Left" Name="BtnDelete" Click="BtnDelete_Click"  Width="194"/>
+            <Button Grid.Row="0" Content="Save pdf" x:Name="ScanBtn1" HorizontalAlignment="Left" Click="ScanBtn_Click2"/>
+        </DockPanel>
+        <DockPanel Margin="0,352,0,47" Grid.RowSpan="2">
+            <Button Margin="3" Width="20"  Name="BtnFirstPage" Click="BtnFirstPage_Click" Content="&lt;&lt;"></Button>
+            <Button Margin="3" Width="20" Name="BtnPreviousPage" Click="BtnPreviousPage_Click" Content="&lt;"></Button>
+            <Label Name="LblPages" VerticalAlignment="Center" FontSize="16" Margin="16,10">4/5</Label>
+            <Button Margin="3" Width="20" Name="BtnNextPage" Click="BtnNextPage_Click" Content="&gt;"></Button>
+            <Button Margin="3" Width="20" Name="BtnLastPage" Click="BtnLastPage_Click" Content="&gt;&gt;"></Button>
+
+        </DockPanel>
+        <StackPanel  x:Name="SPanelPages" Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Center"></StackPanel>
+
     </Grid>
 </Page>
